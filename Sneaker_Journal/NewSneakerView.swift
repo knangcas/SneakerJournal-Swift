@@ -118,6 +118,8 @@ struct NewSneakerView : View {
         newSneaker.purchaseAmount = Double(purchasePrice) ?? 0
 
         context.insert(newSneaker)
+        try? context.save()
+        dismiss()
     }
     
 }

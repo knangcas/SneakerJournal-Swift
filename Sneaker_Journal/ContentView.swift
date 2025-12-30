@@ -11,30 +11,40 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    @Query private var SneakerList : [Sneaker]
 
     var body: some View {
         NavigationStack {
             List {
-                ForEach(items) { item in
+                ForEach(SneakerList) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        Text(item.brand)
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        VStack (alignment:.leading){
+                            Text("\(String(item.year)) \(item.brand) \(item.model)")
+                                .font(.title3)
+                            Text("\(item.nickname)")
+                                .font(.caption)
+                        }.padding()
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
             .toolbar {
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    NavigationLink {
+                        NewSneakerView()
+                    } label: {
+                            Label("Add Item", systemImage: "plus")
+                        
                     }
                 }
             }
-        }
+        }.navigationTitle("Sneaker List")
     }
 
     private func addItem() {
@@ -47,7 +57,7 @@ struct ContentView: View {
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(items[index])
+                modelContext.delete(SneakerList[index])
             }
         }
     }
