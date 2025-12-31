@@ -13,15 +13,16 @@ class Sneaker : Identifiable{
     var id : Int
     var brand : String
     var model : String
-    var nickname : String
-    var primaryColor : String
-    var year : Int
-    var yearPurchased : Int
-    var purchaseAmount : Double
-    var image : String
-    var wearCount : Int
-    var lastWorn : Date?
     var size: Double
+    var nickname : String?
+    var primaryColor : String?
+    var year : Int?
+    var yearPurchased : Int?
+    var purchaseAmount : Double?
+    var image : String?
+    var wearCount : Int?
+    var lastWorn : Date?
+    
     
     init(brand:String,model:String,size:Double) {
         id = UUID().hashValue
@@ -38,7 +39,7 @@ class Sneaker : Identifiable{
         self.lastWorn = nil
     }
     
-    var fullName : String {
-        brand + " " + model + " " + nickname + " (" + String(year) + ")"
-    }
+//    var fullName : String {
+//        brand + " " + model + " " + nickname + " (" + String(year) + ")"
+//    }
 }
