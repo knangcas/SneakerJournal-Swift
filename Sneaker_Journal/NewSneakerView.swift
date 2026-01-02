@@ -110,12 +110,12 @@ struct NewSneakerView : View {
             brand:brand,
             model:model,
             size:Double(size) ?? 0)
-        newSneaker.year = Int(year) ?? 0
-        newSneaker.yearPurchased = Int(yearPurchased) ?? 0
+        newSneaker.year = Int(year) ?? nil
+        newSneaker.yearPurchased = Int(yearPurchased) ?? nil
         newSneaker.wearCount = 0
-        newSneaker.nickname = nickname
-        newSneaker.primaryColor = primaryColor
-        newSneaker.purchaseAmount = Double(purchasePrice) ?? 0
+        newSneaker.nickname = nickname.isEmpty ? nil : nickname
+        newSneaker.primaryColor = primaryColor.isEmpty ? nil : primaryColor
+        newSneaker.purchaseAmount = purchasePrice.isEmpty ? nil : Double(purchasePrice)
 
         context.insert(newSneaker)
         try? context.save()

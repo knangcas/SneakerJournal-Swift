@@ -20,12 +20,7 @@ struct ContentView: View {
                     NavigationLink {
                         Text(item.brand)
                     } label: {
-                        VStack (alignment:.leading){
-                            Text("\(String(item.year)) \(item.brand) \(item.model)")
-                                .font(.title3)
-                            Text("\(item.nickname)")
-                                .font(.caption)
-                        }.padding()
+                        SneakerListView(sneaker:item)
                     }
                 }
                 .onDelete(perform: deleteItems)

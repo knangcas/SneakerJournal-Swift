@@ -20,7 +20,7 @@ class Sneaker : Identifiable{
     var yearPurchased : Int?
     var purchaseAmount : Double?
     var image : String?
-    var wearCount : Int?
+    var wearCount : Int
     var lastWorn : Date?
     
     
@@ -29,14 +29,7 @@ class Sneaker : Identifiable{
         self.brand = brand
         self.model = model
         self.size = size
-        self.nickname = ""
-        self.primaryColor = ""
-        self.year = 0
-        self.yearPurchased = 0
-        self.purchaseAmount = 0
-        self.image = ""
         self.wearCount = 0
-        self.lastWorn = nil
     }
     
 //    var fullName : String {
