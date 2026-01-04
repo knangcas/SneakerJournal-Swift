@@ -23,7 +23,8 @@ struct SneakerListView: View {
             
             Text("\(yearUnwrapped) \(sneaker.brand) \(sneaker.model)")
                 .font(.title3)
-            sneaker.nickname == nil ? Text("Worn \(sneaker.wearCount) times") : Text("\"\(sneaker.nickname!)\" Worn \(sneaker.wearCount) times")
+            sneaker.nickname == nil ? Text("Worn \(sneaker.wearCount) times")
+                .font(.caption): Text("\"\(sneaker.nickname!)\" Worn \(sneaker.wearCount) times")
                 .font(.caption)
         }.padding()
     }

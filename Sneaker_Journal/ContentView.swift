@@ -12,6 +12,8 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
     @Query private var SneakerList : [Sneaker]
+    
+    
 
     var body: some View {
         NavigationStack {
@@ -26,7 +28,9 @@ struct ContentView: View {
                 .onDelete(perform: deleteItems)
             }
             .toolbar {
-                
+                ToolbarItem (placement:.navigationBarLeading) {
+                    
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
@@ -38,9 +42,11 @@ struct ContentView: View {
                         
                     }
                 }
-            }
-        }.navigationTitle("Sneaker List")
+            }.navigationTitle("Sneaker List")
+        }
     }
+    
+    
 
     private func addItem() {
         withAnimation {
@@ -57,6 +63,8 @@ struct ContentView: View {
         }
     }
 }
+
+
 
 #Preview {
     ContentView()
