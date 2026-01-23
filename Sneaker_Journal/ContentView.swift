@@ -18,8 +18,7 @@ struct ContentView: View {
                     .toolbarBackgroundVisibility(.visible, for: .tabBar)
             }
             Tab("Journal", systemImage: "square.and.pencil") {
-                Text("TODO")
-                    .toolbarBackgroundVisibility(.visible, for: .tabBar)
+                JournalPost()
             }
             Tab("Stats", systemImage: "chart.bar") {
                 Text("TODO")
